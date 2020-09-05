@@ -21,9 +21,10 @@ public class BasePOM {
         wait = new WebDriverWait(driver, 10);
     }
 
-    public void waitAndClick(By locator) {
+    public void waitAndClick(By locator)  {
         wait.until(ExpectedConditions.presenceOfElementLocated(locator));
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
         driver.findElement(locator).click();
     }
 
