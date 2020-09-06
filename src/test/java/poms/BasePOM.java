@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.BaseDriver;
 
+import java.util.List;
+
 public class BasePOM {
 
     protected WebDriverWait wait;
@@ -29,6 +31,18 @@ public class BasePOM {
         webElement.clear();
         webElement.sendKeys(text);
     }
+    public void waitAndClick(By locator) {
+        wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+        driver.findElement(locator).click();
+    }
+
+
+    public void waitAndSendKeys(By locator, String text) {
+        WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+        webElement.clear();
+        webElement.sendKeys(text);
+    }
 
     public void waitForProgressBar() {
         try {
@@ -38,6 +52,16 @@ public class BasePOM {
             System.out.println("There's no progress bar continue");
         }
     }
+    public boolean verifyElementsContain(By locator, String text) {
+        List<WebElement> elements = driver.findElements(locator);
+        for (WebElement element : elements) {
+            if(element.getText().contains(text)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public void ElementContainsText(WebElement element, String myText){
 
