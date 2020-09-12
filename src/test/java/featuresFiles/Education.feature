@@ -6,26 +6,26 @@ Feature: Education part
     Then I am logged in
 
   Scenario: Succesfully Created A Subject Category
-    Given I navigate to "Subject Categories" screen
+    Given I navigate to "Subject Categories" screen in EDU
     When  I create a Subject Category
       |International Politics|
       |IR301                 |
     Then Verify the "successfully" message
 
   Scenario:Successfully Created A Subject
-    Given I navigate to "Subjects" screen
+    Given I navigate to "Subjects" screen in EDU
     When I create a Subject
       |name|European Union|
       |code|EU101         |
     Then Verify the "successfully" message
 
   Scenario:Negative scenario to delete Subject Category
-    Given I navigate to "Subject Categories" screen
+    Given I navigate to "Subject Categories" screen in EDU
     When I delete "International Politics"
     Then Verify the "can't be deleted" message
 
   Scenario:Positive scenario to delete Subject Category
-    Given I navigate to "Subjects" screen
+    Given I navigate to "Subjects" screen in EDU
     When I delete "European Union"
     Then Verify the "successfully" message
     And Go Back to Study Categories

@@ -74,6 +74,7 @@ public class EducationSteps extends BasePOM {
     }
     @When("^I delete \"([^\"]*)\"$")
     public void i_delete_category(String arg1) throws InterruptedException {
+        Thread.sleep(2000);
         edu.searchFor(arg1);
         waitAndClick(edu.trashButton);
         waitAndClick(edu.yesButton);

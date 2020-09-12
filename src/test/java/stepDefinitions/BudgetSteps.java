@@ -52,7 +52,7 @@ public class BudgetSteps extends BasePOM {
         budget.findElementAndClick("saveButton");
     }
 
-    @Then("^Verify the \"([^\"]*)\" message$")
+    @Then("^Verify the \"([^\"]*)\" message2$")
     public void verify_the_message(String message)  {
         budget.findElementAndVerifyElementContainText("SuccessfullyMessage", message);
     }
