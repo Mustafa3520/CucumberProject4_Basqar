@@ -74,6 +74,29 @@ public class BudgetPOM extends BasePOM {
     @FindBy(css = ".mat-dialog-actions .mat-button-wrapper")
     private WebElement yesButton;
 
+    @FindBy(xpath = "//span[text()='Cost Centers']" )
+    private WebElement menuBudgetCostCenter;
+
+    @FindBy(xpath = "//div[@role='tab']" )
+    private WebElement costCenterSegment;
+
+    @FindBy(css = "[formcontrolname='name']" )
+    private WebElement nameInput;
+
+    @FindBy(css = "[class='mat-form-field ng-tns-c147-195 mat-primary mat-form-field-type-ms-text-field mat-form-field-appearance-legacy mat-form-field-can-float mat-form-field-has-label mat-form-field-hide-placeholder ng-pristine ng-invalid mat-form-field-invalid ng-touched']" )
+    private WebElement code;
+
+    @FindBy(css = "[aria-label='Type']" )
+    private WebElement type;
+
+    @FindBy(xpath = "//span[text()=' Personal ']")
+    private WebElement personal;
+
+    @FindBy(css = "[aria-autocomplete='list']" )
+    private WebElement prefixes;
+
+    @FindBy(xpath = "//span[text()=' 2.1 | Персонал ']")
+    private WebElement personalInKhazakAlpahbet;
 
     public void searchFor(String name) {
         page.waitAndSendKeys(searchInput,name);
@@ -122,6 +145,27 @@ public class BudgetPOM extends BasePOM {
             case "yesButton":
                 budgetElements = yesButton;
                 break;
+            case "menuBudgetCostCenter":
+                budgetElements = menuBudgetCostCenter;
+                break;
+            case "type":
+                budgetElements = type;
+                break;
+            case "personal":
+                budgetElements = personal;
+                break;
+            case "prefixes":
+                budgetElements = prefixes;
+                break;
+            case "personalInKhazakAlpahbet":
+                budgetElements = personalInKhazakAlpahbet;
+                break;
+            case "costCenterSegment":
+                budgetElements = costCenterSegment;
+                break;
+
+
+
 
 
         }
@@ -146,6 +190,12 @@ public class BudgetPOM extends BasePOM {
                 break;
             case "commentBox":
                 budgetElements = commentBox;
+                break;
+            case "nameInput":
+                budgetElements = nameInput;
+                break;
+            case "code":
+                budgetElements = code;
                 break;
 
 
