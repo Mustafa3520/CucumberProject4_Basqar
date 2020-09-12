@@ -1,6 +1,7 @@
 package poms;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -12,7 +13,7 @@ public class BasePOM {
 
     protected WebDriverWait wait;
     protected WebDriver driver;
-
+    public By rowLocator = By.cssSelector("ms-browse-table tbody > tr");
     public By progressBarLocator = By.tagName("mat-progress-bar");
 
     public BasePOM() {
@@ -67,5 +68,23 @@ public class BasePOM {
 
         wait.until(ExpectedConditions.visibilityOf(element));
         Assert.assertTrue(element.getText().contains(myText));
+    }
+
+    public Integer getNumberOfElements(By locator) {
+        return driver.findElements(locator).size();
+    }
+
+    public void pressTabKey() {
+        Actions build = new Actions(driver);
+        build.sendKeys(Keys.TAB).build().perform();
+    }
+
+    public void waitForTableNotToBeEmpty() {
+        try {
+            wait.until(ExpectedConditions.numberOfElementsToBeMoreThan(rowLocator, 0));
+            // TODO: to use webelement to check for numberOfElementsToBeMoreThan condition
+        } catch (Exception e) {
+            System.out.println("The table is empty, nevermind!");
+        }
     }
 }

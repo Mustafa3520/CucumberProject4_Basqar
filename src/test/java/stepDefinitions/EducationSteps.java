@@ -18,8 +18,7 @@ import java.util.Random;
 public class EducationSteps extends BasePOM {
     EducationPOM edu =new EducationPOM();
 
-
-    @Given("^I navigate to \"([^\"]*)\" screen$")
+    @Given("^I navigate to \"([^\"]*)\" screen in EDU$")
     public void i_navigate_to_screen(String screen)  {
         waitAndClick(edu.menuEducation);
         waitAndClick(edu.menuSetup);
